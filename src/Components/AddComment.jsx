@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Alert, Button, Form } from "react-bootstrap";
 
 class AddComment extends Component {
   state = {
@@ -8,6 +8,7 @@ class AddComment extends Component {
       rate: "",
       elementId: this.props.id,
     },
+    hasComment: false,
   };
 
   handleChange = (propertyName, propertyValue) => {
@@ -45,6 +46,8 @@ class AddComment extends Component {
       })
       .then((savedComment) => {
         console.log("saved comment", savedComment);
+        this.setState({ hasComment: true });
+        setTimeout(() => this.setState({ hasComment: false }), 3000);
       })
       .catch((err) => {
         console.log(err);
@@ -56,6 +59,7 @@ class AddComment extends Component {
   render() {
     return (
       <div>
+        {this.state.hasComment && <Alert variant="success">Commento inviato!</Alert>}
         <Form onSubmit={this.handleSubmit}>
           <Form.Group className="mb-3" controlId="comment">
             <Form.Label className="text-white">Comment</Form.Label>
