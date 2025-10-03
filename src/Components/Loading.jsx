@@ -1,3 +1,5 @@
-const Loading = (props) => {};
+// const Loading = (props) => {
 
-export default Loading;
+// };
+
+// export default Loading;

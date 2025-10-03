@@ -37,7 +37,7 @@ class CommentArea extends Component {
       <div className="rounded shadow-sm mt-3">
         <h2 className="display-6 mb-4 text-white fw-semibold m-0">{this.state.comments.length > 0 ? "Comments:" : "Non ci sono commenti da visualizzare."}</h2>
         <CommentList comments={this.state.comments} />
-        <AddComment id={this.props.id} />
+        <AddComment id={this.props.id} getFetch={this.getFetch} />
       </div>
     );
   }
